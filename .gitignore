@@ -42,3 +42,4 @@ build/
 /front/angular-tour-of-heroes/build
 /front/angular-tour-of-heroes/dist
 /front/angular-tour-of-heroes/.angular
+/front/angular-tour-of-heroes/node_modules

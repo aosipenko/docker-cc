@@ -1,0 +1,22 @@
+<table border="1" cellpadding="10" cellspacing="0" style="margin: 20px auto;">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th>Gender</th>
+    <th>Title</th>
+    <th>Nationality</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let person of people">
+    <td>{{ person.id }}</td>
+    <td>{{ person.name.firstName }}</td>
+    <td>{{ person.name.lastName }}</td>
+    <td>{{ person.gender }}</td>
+    <td>{{ person.name.title }}</td>
+    <td>{{ person.nationatlity }}</td>
+  </tr>
+  </tbody>
+</table>

@@ -17,21 +17,28 @@ services:
       - demo-net
     hostname: 'demo-sql'
     container_name: mysql
-  busybox:
-    image: busybox
-    container_name: busybox
-    command: sh -c "while true; do sleep 3600; done"
-    networks:
-      - demo-net
-  my-app:
+  backend:
     image: my-app
-    container_name: my-app
+    build: ./api-build
+    container_name: demo-api
     networks:
       - demo-net
+    hostname: 'demo-api'
     ports:
       - '8080:8080'
     expose:
       - '8080'
+  frontend:
+    image: angular-app
+    build: ./angular-build
+    container_name: my-front
+    networks:
+      - demo-net
+    hostname: 'my-front'
+    ports:
+      - '8081:80'
+    expose:
+      - '80'
 volumes:
   my-volume:
     external: true

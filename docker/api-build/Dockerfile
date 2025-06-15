@@ -3,6 +3,7 @@ FROM amazoncorretto:21-alpine
 RUN mkdir -p /app/jar
 WORKDIR /app/jar
 
+#/app/jar/my-app.jar
 COPY demo-app.jar my-app.jar
 
 EXPOSE 8080

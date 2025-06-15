@@ -6,3 +6,7 @@ CREATE TABLE Persons (
                          Title varchar(255) NOT NULL,
                          Nat varchar(255) NOT NULL
 );
+
+
+
+select * from Persons;

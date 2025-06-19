@@ -20,4 +20,5 @@ services:
     environment:
       VAULT_ADDR: http://vault:8200
       VAULT_TOKEN: root
+      MYAPP_PASSWORD: ${MYAPP_PASSWORD}
     entrypoint: ["/bin/sh", "/app.sh"]

@@ -13,7 +13,7 @@ echo "Vault is initialized and ready."
 
 # Try reading a secret (we'll create one on the fly)
 echo "Writing secret to Vault..."
-vault kv put secret/myapp password="swordfish"
+vault kv put secret/myapp password="${MYAPP_PASSWORD}"
 
 echo "Reading secret from Vault..."
 SECRET=$(vault kv get -format=json secret/myapp | jq -r '.data.data.password')

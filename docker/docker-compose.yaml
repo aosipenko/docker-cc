@@ -18,8 +18,8 @@ services:
     hostname: 'demo-sql'
     container_name: mysql
   backend:
-    image: my-app
-    build: ./api-build
+    image: localhost:5000/my-app:latest
+#    build: ./api-build
     container_name: demo-api
     networks:
       - demo-net

@@ -1,0 +1,60 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-1
+  labels:
+    app: busybox-1
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    command: [ "sh", "-c", "echo The secret is: $(PASSWORD); sleep 3600" ]
+    env:
+    - name: PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: my-secret
+          key: password
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: busybox-1
+spec:
+  selector:
+    app: busybox-1
+  ports:
+  - port: 80
+    targetPort: 80
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-2
+  labels:
+    app: busybox-2
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    command: [ "sh", "-c", "echo The secret is: $(PASSWORD); sleep 3600" ]
+    env:
+    - name: PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: my-secret
+          key: password
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: busybox-2
+spec:
+  selector:
+    app: busybox-2
+  ports:
+  - port: 80
+    targetPort: 80
